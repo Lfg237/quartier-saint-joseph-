@@ -154,14 +154,52 @@ padding:15px;
 font-size:14px;
 z-index:1000;
 }
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+background:#0d47a1;
+color:white;
+padding:10px 15px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:1000;
+box-shadow:0 2px 10px rgba(0,0,0,.2);
+}
+
+.btn-accueil{
+background:#ff9800;
+color:white;
+text-decoration:none;
+padding:8px 15px;
+border-radius:25px;
+font-weight:bold;
+transition:.3s;
+}
+
+.btn-accueil:hover{
+transform:scale(1.05);
+}
 </style>
 </head>
 
 <body>
 
 <header>
+
+<div>
 <h1>🏘️ Quartier Saint-Joseph</h1>
 <p>Informations et Activités du Quartier</p>
+</div>
+
+<a href="https://lesfacilitateurs.vercel.app/"
+   target="_blank"
+   class="btn-accueil">
+   🏠 Accueil
+</a>
+
 </header>
 
 <h2 class="section-title">👥 Bureau de la Chefferie</h2>
