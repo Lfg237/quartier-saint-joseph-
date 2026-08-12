@@ -44,111 +44,318 @@ font-size:22px;
 font-weight:bold;
 }
 
-/* BUREAU */
+/* =========================
+   CARTES DU BUREAU
+========================= */
+
 .bureau-container{
-display:flex;
-overflow-x:auto;
-padding:10px;
-gap:15px;
-scrollbar-width:none;
+    display:flex;
+    overflow-x:auto;
+    padding:10px 15px 20px;
+    gap:15px;
+    scrollbar-width:none;
+    align-items:flex-start;
 }
 
 .bureau-container::-webkit-scrollbar{
-display:none;
+    display:none;
 }
 
 .member{
-min-width:220px;
-background:white;
-border-radius:15px;
-overflow:hidden;
-box-shadow:0 2px 8px rgba(0,0,0,.15);
-flex-shrink:0;
+    width:260px;
+    min-width:260px;
+    background:#fff;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 2px 8px rgba(0,0,0,.15);
+    flex-shrink:0;
 }
+
+/* IMAGE DU BUREAU */
 
 .member img{
-width:100%;
-height:220px;
-object-fit:contain;
-background:#f5f5f5;
-}
-.member video{
-width:100%;
-height:220px;
-object-fit:cover;
-background:#000;
+    width:100%;
+    height:260px;
+    object-fit:contain;
+    background:#f5f5f5;
+    display:block;
 }
 
+/* VIDÉO DANS UNE CARTE */
+
+.member video{
+    width:100%;
+    height:auto;
+    min-height:200px;
+    max-height:400px;
+    display:block;
+    object-fit:contain;
+    background:#000;
+}
+
+/* CONTENU DE LA CARTE */
+
 .member-info{
-padding:10px;
-text-align:center;
+    padding:12px;
+    text-align:center;
+    white-space:normal;
+    overflow-wrap:break-word;
+    word-break:normal;
 }
 
 .member-info h3{
-color:#0d47a1;
-margin-bottom:5px;
+    color:#0d47a1;
+    margin:0 0 8px;
+    font-size:17px;
+    line-height:1.35;
+    white-space:normal;
+    overflow-wrap:anywhere;
 }
 
 .member-info p{
-font-size:14px;
-color:#555;
-margin-bottom:10px;
+    font-size:14px;
+    color:#555;
+    margin:0 0 12px;
+    line-height:1.5;
+    white-space:normal;
+    overflow-wrap:anywhere;
 }
 
+/* BOUTONS */
+
 .actions{
-display:flex;
-justify-content:center;
-gap:10px;
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    flex-wrap:wrap;
 }
 
 .btn{
-padding:8px 12px;
-border:none;
-border-radius:8px;
-color:white;
-text-decoration:none;
-font-size:14px;
+    padding:8px 12px;
+    border:none;
+    border-radius:8px;
+    color:white;
+    text-decoration:none;
+    font-size:14px;
+    display:inline-block;
 }
 
 .tel{
-background:#1565c0;
+    background:#1565c0;
 }
 
 .whatsapp{
-background:#25D366;
+    background:#25D366;
 }
 
-/* ACTIVITES */
-.activities{
-padding:10px;
-}
+
+/* =========================
+   PHOTOS / CONTRIBUTIONS
+========================= */
 
 .activity{
-background:white;
-margin-bottom:15px;
-border-radius:15px;
-overflow:hidden;
-box-shadow:0 2px 8px rgba(0,0,0,.15);
+    background:#fff;
+    margin:15px 10px;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 2px 8px rgba(0,0,0,.15);
 }
 
-.activity img{
-width:100%;
-height:220px;
-object-fit:cover;
+/* IMPORTANT :
+   on ne coupe plus les grandes images */
+
+.activity > img{
+    width:100%;
+    height:auto;
+    max-height:none;
+    object-fit:contain;
+    display:block;
+    background:#f5f5f5;
 }
+
+/* contenu */
 
 .activity-content{
-padding:15px;
+    padding:15px;
+    overflow-wrap:anywhere;
+    word-break:normal;
 }
 
 .activity-content h3{
-color:#0d47a1;
-margin-bottom:8px;
+    color:#0d47a1;
+    margin:0 0 10px;
+    font-size:19px;
+    line-height:1.4;
+    white-space:normal;
 }
 
 .activity-content p{
-line-height:1.6;
-color:#444;
+    line-height:1.7;
+    color:#444;
+    white-space:normal;
+    overflow-wrap:anywhere;
+}
+
+
+/* =========================
+   CADRES
+========================= */
+
+.cadre{
+    background:#f8f9fa;
+    border-left:5px solid #0d47a1;
+    border-radius:10px;
+    padding:12px;
+    margin-bottom:12px;
+    overflow-wrap:anywhere;
+}
+
+.cadre h3{
+    margin:0 0 8px;
+    color:#0d47a1;
+    line-height:1.4;
+    white-space:normal;
+}
+
+.cadre p{
+    margin:0;
+    line-height:1.6;
+    white-space:normal;
+    overflow-wrap:anywhere;
+}
+
+
+/* =========================
+   LECTEUR VIDÉO PLEIN ÉCRAN
+========================= */
+
+#mediaPlayer{
+    display:none;
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    background:#000;
+    z-index:99999;
+    flex-direction:column;
+}
+
+#mediaContent{
+    width:100%;
+    height:calc(100% - 60px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    background:#000;
+}
+
+#mediaContent video{
+    width:100%;
+    height:100%;
+    max-width:100%;
+    max-height:100%;
+    object-fit:contain;
+    background:#000;
+}
+
+#mediaContent iframe{
+    width:100%;
+    height:100%;
+    border:none;
+}
+
+#mediaContent audio{
+    width:90%;
+    max-width:600px;
+}
+
+#closePlayer{
+    height:60px;
+    width:100%;
+    flex-shrink:0;
+    border:none;
+    background:#0d47a1;
+    color:#fff;
+    font-size:20px;
+    cursor:pointer;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+    body{
+        padding-top:110px;
+        padding-bottom:65px;
+    }
+
+    header{
+        padding:8px 10px;
+    }
+
+    header h1{
+        font-size:19px;
+    }
+
+    header p{
+        font-size:12px;
+    }
+
+    .btn-accueil{
+        padding:7px 9px;
+        font-size:12px;
+        white-space:nowrap;
+    }
+
+    .section-title{
+        font-size:20px;
+        margin:15px 10px;
+    }
+
+    .member{
+        width:240px;
+        min-width:240px;
+    }
+
+    .member img{
+        height:240px;
+    }
+
+    .member video{
+    width:100%;
+    height:auto;
+    min-height:200px;
+    max-height:400px;
+    object-fit:contain;
+}
+
+    .activity{
+        margin:12px 8px;
+    }
+
+    .activity-content{
+        padding:12px;
+    }
+
+    .activity-content h3{
+        font-size:17px;
+    }
+
+    .activity-content p{
+        font-size:14px;
+    }
+}
+
+.activity > img{
+    width:100%;
+    height:auto;
+    max-height:none;
+    object-fit:contain;
+    display:block;
 }
 
 /* FOOTER */
@@ -180,18 +387,26 @@ box-shadow:0 2px 10px rgba(0,0,0,.2);
 }
 
 .btn-accueil{
-background:#ff9800;
-color:white;
-text-decoration:none;
-padding:8px 15px;
-border-radius:25px;
-font-weight:bold;
-transition:.3s;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    background:#ff9800;
+    color:white;
+    text-decoration:none;
+    padding:10px 16px;
+    border-radius:25px;
+    font-weight:bold;
+    font-size:14px;
+    white-space:nowrap;
+    box-shadow:0 3px 8px rgba(0,0,0,.25);
+    transition:.3s;
 }
 
 .btn-accueil:hover{
-transform:scale(1.05);
+    transform:scale(1.05);
+    background:#f57c00;
 }
+
 .activity{
     background:#fff;
     border-radius:15px;
@@ -289,8 +504,9 @@ cursor:pointer;
 
 <a href="https://assistant-lesfacilitateurs-ia.vercel.app/"
    target="_blank"
-   class="btn-acceuil">
-   🏠 assistant IA
+   rel="noopener noreferrer"
+   class="btn-accueil">
+   🌝 Assistant IA
 </a>
 
 </header>
@@ -731,6 +947,15 @@ Grande rencontre culturelle avec animations, musique et partage entre les habita
 </div>
 
 </div>
+<div id="mediaPlayer">
+
+<button id="closePlayer">
+❌ Fermer
+</button>
+
+<div id="mediaContent"></div>
+
+</div>
 
 <footer>
 © 2026 Quartier Saint-Joseph | Informations communautaires
@@ -803,6 +1028,7 @@ style="width:100%;height:100%;border:none;">
 return;
 }
 
+
 // TikTok
 if(url.includes("tiktok.com") || url.includes("vm.tiktok.com")){
 window.open(url,"_blank");
@@ -814,14 +1040,6 @@ window.open(url,"_blank");
 
 }
 </script>
-<div id="mediaPlayer">
 
-<button id="closePlayer">
-❌ Fermer
-</button>
-
-<div id="mediaContent"></div>
-
-</div>
 </body>
 </html>
